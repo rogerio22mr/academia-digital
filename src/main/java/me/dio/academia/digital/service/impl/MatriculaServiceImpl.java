@@ -31,7 +31,7 @@ public class MatriculaServiceImpl implements IMatriculaService {
 
     @Override
     public Matricula get(Long id) {
-        return null;
+        return matriculaRepository.findById(id).get();
     }
 
     @Override
@@ -47,6 +47,7 @@ public class MatriculaServiceImpl implements IMatriculaService {
 
     @Override
     public void delete(Long id) {
-
+        Matricula matricula = this.get(id);
+        matriculaRepository.delete(matricula);
     }
 }

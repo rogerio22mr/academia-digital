@@ -21,9 +21,19 @@ public class MatriculaController {
         return service.getAll(bairro);
     }
 
+    @GetMapping("matricula/{id}")
+    public Matricula get(@PathVariable Long id) {
+        return service.get(id);
+    }
+
     @PostMapping
     public Matricula create(@Valid @RequestBody MatriculaForm form) {
         return service.create(form);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
 
 }
